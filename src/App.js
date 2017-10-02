@@ -34,11 +34,6 @@ class App extends Component {
     shadows: false
   }
 
-  toggleShadows = this.setState(state => ({
-    ...state,
-    shadows: !state.shadows
-  }))
-
   render() {
     const { lastMessagePreview } = this.props
     return (
