@@ -30,6 +30,7 @@ const SearchInput = styled.input`
   padding-right: 22px;
   font-size: 13px;
   max-width: 320px;
+  cursor: not-allowed;
   border: 4px solid transparent;
   ${transitions("border 0.25s ease-in-out", "text-indent 0.25s ease-in-out")};
   text-align: center;

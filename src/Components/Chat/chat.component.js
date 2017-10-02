@@ -14,7 +14,7 @@ export const ChatBody = styled.div`
   padding-right: 20px;
   padding-top: 36px;
   padding-bottom: 50px;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
 `
 

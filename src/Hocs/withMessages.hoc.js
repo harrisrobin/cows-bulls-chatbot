@@ -22,7 +22,7 @@ export default ComposedComponent => {
       playCow: PropTypes.func.isRequired
     }
 
-    state = INITIAL_STATE
+    state = { ...INITIAL_STATE }
 
     chatAreaDiv = null // keep a reference of the chat area to auto scroll to bottom later.
 
@@ -33,23 +33,21 @@ export default ComposedComponent => {
 
     intro = () => {
       const messages = [
-        { text: "Hey there 👋🏽" },
-        { text: "Welcome to Bulls and Cows" },
+        { text: "Hey there 👋" },
         {
           text:
-            "🐃's and 🐄's is a code breaking game where you have to try and guess a secret number."
+            "Bulls and Cows is a code breaking game where you have to try and guess a 4 digit secret combination."
         },
         {
           text:
-            "Bulls, show how many of those numbers you guessed exist at the right spot and Cows represent the number you guessed but at the wrong spot."
+            "When you guess a correct number in it's proper position, that represents a Bull and if you guess a correct number in general, that's a Cow."
         },
         {
-          text:
-            "Now that you understand the game, I am generating the secret combination..."
-        },
-        {
-          text:
-            "Go ahead, try to guess the 4 digit combination that's stored in my memory ;)"
+          text: `
+              Remember, there are no repeating numbers. Now that you understand the game, I am generating the secret combination...
+              
+              Go ahead, try to guess the 4 digit combination that's stored in my memory ;)
+            `
         }
       ]
 
@@ -161,31 +159,40 @@ export default ComposedComponent => {
 
     revealScore = () => {
       const { cows, bulls, tries } = this.state
-      const finalStatement = `
-        Alright, here's how you did:
-        
-        You have ${cows.length} 🐄(s) and ${bulls.length} 🐃(s).
 
-        You have tried ${tries} times.
-        
-        Feeling lucky? Give it another shot 🍀
-      `
-      setTimeout(() => {
-        this.pushMessage({ text: finalStatement })
-        this.resetScore()
-        if (cows.length > 1) {
-          this.props.playCow()
-        }
-      }, 2000)
+      if (tries > 7) {
+        this.resetGame()
+        setTimeout(() => {
+          this.pushMessage({
+            text: `You have run out of tries. Resetting game...`
+          })
+        }, 2000)
+      } else {
+        setTimeout(() => {
+          this.pushMessage({
+            text: `
+                Alright, here's how you did:
+                
+                You have ${cows.length} 🐄(s) and ${bulls.length} 🐃(s).
+
+                You have tried ${tries} times.
+                
+                Feeling lucky? Give it another shot 🍀
+            `
+          })
+          if (cows.length > 1) {
+            this.props.playCow()
+          }
+          this.setState({ typing: false, cows: [], bulls: [] })
+        }, 2000)
+      }
     }
 
-    resetScore = () => {
+    resetGame = () => {
       this.setState(state => ({
         ...INITIAL_STATE,
-        typing: false, // we do not want typing to be true on reset.
-        messages: state.messages, // we do want to preserve all the previous messages.,
-        secretCode: generateCombination(), // we also want a new code.
-        tries: state.tries // we want to keep track of the amount of tries.
+        typing: false,
+        messages: state.messages
       }))
     }
 

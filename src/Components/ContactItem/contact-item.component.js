@@ -13,7 +13,7 @@ const ContactWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-self: center;
-  cursor: pointer;
+  cursor: not-allowed;
   @media (min-width: 768px) {
     flex-direction: row;
     padding-left: 20px;
