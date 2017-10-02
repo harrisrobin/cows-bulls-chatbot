@@ -13,30 +13,30 @@ const from = ({ fromMe }) => {
       border-radius:25px;
       float: right;
       
-    &:before {
-      content:"";
-      position:absolute;
-      z-index:-1;
-      bottom:-2px;
-      right:-7px;
-      height:20px;
-      border-right:20px solid #0B93F6;
-      border-bottom-left-radius: 16px 14px;
-      -webkit-transform:translate(0, -2px);
-    }
+      &:before {
+        content:"";
+        position:absolute;
+        z-index:-1;
+        bottom:-2px;
+        right:-7px;
+        height:20px;
+        border-right:20px solid #0B93F6;
+        border-bottom-left-radius: 16px 14px;
+        -webkit-transform:translate(0, -2px);
+      }
 
-    &:after {
-      content:"";
-      position:absolute;
-      z-index:1;
-      bottom:-2px;
-      right:-56px;
-      width:26px;
-      height:20px;
-      background:white;
-      border-bottom-left-radius: 10px;
-      -webkit-transform:translate(-30px, -2px);
-    }
+      &:after {
+        content:"";
+        position:absolute;
+        z-index:1;
+        bottom:-2px;
+        right:-56px;
+        width:26px;
+        height:20px;
+        background:white;
+        border-bottom-left-radius: 10px;
+        -webkit-transform:translate(-30px, -2px);
+      }
   `
   } else {
     return `

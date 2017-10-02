@@ -16,6 +16,7 @@ export const ChatBody = styled.div`
   padding-bottom: 50px;
   overflow-y: scroll;
   overflow-x: hidden;
+  min-height: 100%;
 `
 
 export const Clear = styled.div`clear: both;`
