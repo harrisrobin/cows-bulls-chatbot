@@ -1,0 +1,28 @@
+{
+  "name": "cow-bull",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "howler": "^2.0.4",
+    "lodash.shuffle": "^4.2.0",
+    "lodash.truncate": "^4.4.2",
+    "lodash.uniq": "^4.5.0",
+    "normalize.css": "^7.0.0",
+    "polished": "^1.7.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-animations": "^0.1.0",
+    "react-dom": "^16.0.0",
+    "react-motion": "^0.5.1",
+    "react-scripts": "1.0.14",
+    "recompose": "^0.25.1",
+    "styled-components": "^2.2.0",
+    "styled-system": "^1.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
