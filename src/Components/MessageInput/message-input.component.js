@@ -8,7 +8,7 @@ const Input = styled.input`
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
+  width: 200px;
   outline: none;
   border: none;
   background: #ffffff;
@@ -25,9 +25,16 @@ const Input = styled.input`
     "box-shadow 0.2s ease-in-out"
   )};
   &:focus {
-    width: 500px;
+    width: 350px;
     box-shadow: 0 10px 10px 0 rgba(64, 146, 239, 0.12),
       0 14px 28px 0 rgba(64, 146, 239, 0.25);
+  }
+
+  @media (min-width: 768px) {
+    width: 300px;
+    &:focus {
+      width: 500px;
+    }
   }
 `
 
