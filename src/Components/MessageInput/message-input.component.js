@@ -1,29 +1,34 @@
 import React, { PureComponent } from "react"
 import styled from "styled-components"
+import { transitions } from "polished"
 import Validator from "../../Lib/helpers/validators"
 
-const Wrapper = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 42px;
-  background-color: whitesmoke;
-  padding-left: 18px;
-  padding-right: 24px;
-  display: flex;
-  align-items: center;
-  z-index: 10;
-`
-
 const Input = styled.input`
-  border-radius: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
   outline: none;
   border: none;
+  background: #ffffff;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.15), 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5000px;
   padding-left: 12px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont;
+  font-size: 16px;
+  ${transitions(
+    "width 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+    "box-shadow 0.2s ease-in-out"
+  )};
+  &:focus {
+    width: 500px;
+    box-shadow: 0 10px 10px 0 rgba(64, 146, 239, 0.12),
+      0 14px 28px 0 rgba(64, 146, 239, 0.25);
+  }
 `
 
 class MessageInput extends PureComponent {
@@ -51,15 +56,14 @@ class MessageInput extends PureComponent {
 
   render() {
     return (
-      <Wrapper>
-        <Input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}
-          placeholder="Message"
-        />
-      </Wrapper>
+      <Input
+        type="text"
+        autoFocus
+        value={this.state.value}
+        onChange={this.handleChange}
+        onKeyPress={this.handleKeyPress}
+        placeholder="Message"
+      />
     )
   }
 }

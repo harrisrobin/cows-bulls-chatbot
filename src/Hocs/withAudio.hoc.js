@@ -3,7 +3,6 @@ import { Howl } from "howler"
 
 export default ComposedComponent => {
   return class WithAudio extends PureComponent {
-    static defaultProps = {}
     sendSound = new Howl({ src: ["send.m4a"] })
     receiveSound = new Howl({ src: ["receive.m4a"] })
     cowSound = new Howl({ src: ["cow-sound.wav"] })

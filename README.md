@@ -1,5 +1,7 @@
-A chatbot version of the [Bulls and Cows](https://en.wikipedia.org/wiki/Bulls_and_Cows) game.
 
+## General
+A chatbot version of the [Bulls and Cows](https://en.wikipedia.org/wiki/Bulls_and_Cows) game.
+Only tested on chrome and safari.
 
 ## Preview
 ![Demo](screens/demo.gif)

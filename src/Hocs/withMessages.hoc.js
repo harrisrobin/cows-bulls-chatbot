@@ -175,9 +175,7 @@ export default ComposedComponent => {
                 
                 You have ${cows.length} 🐄(s) and ${bulls.length} 🐃(s).
 
-                You have tried ${tries} times.
-                
-                Feeling lucky? Give it another shot 🍀
+                You have ${7 - tries} tries left.
             `
           })
           if (cows.length > 1) {

@@ -14,6 +14,11 @@ const ContactWrapper = styled.div`
   flex-direction: column;
   align-self: center;
   cursor: not-allowed;
+  box-shadow: ${props =>
+    props.active
+      ? "0 6px 6px 0 rgba(60, 108, 204, 0.1), 0 10px 20px 0 rgba(60, 108, 204, 0.1)"
+      : "none"};
+
   @media (min-width: 768px) {
     flex-direction: row;
     padding-left: 20px;
@@ -25,8 +30,10 @@ const Photo = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  background: #ffffff;
   background-image: url(${props => props.imageURL});
   background-size: cover;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 `
 
 const MessageData = styled.div`
@@ -44,7 +51,7 @@ const NameTime = styled.div`
   justify-content: space-between;
 `
 
-const MessagePreview = styled.div``
+const MessagePreview = styled.div`padding-top: 4px;`
 
 const Contact = ({ active, imageURL, preview, name }) => {
   return (

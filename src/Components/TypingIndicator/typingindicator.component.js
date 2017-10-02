@@ -10,7 +10,6 @@ export default () => {
       <svg
         id="typing_bubble"
         data-name="typing bubble"
-        xmlns="http://www.w3.org/2000/svg"
         width="100"
         height="46"
         viewBox="0 0 100 66"
