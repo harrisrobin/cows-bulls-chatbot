@@ -53,7 +53,7 @@ class MessageInput extends PureComponent {
   handleKeyPress = e => {
     const { value } = this.state
     if (e.key === "Enter") {
-      if (Validator.minLength(2)(value)) {
+      if (Validator.minLength(1)(value)) {
         this.setState({ value: "" }, () => {
           this.props.pushMessage({ text: value, fromMe: true })
         })

@@ -173,7 +173,7 @@ export default ComposedComponent => {
             text: `
                 Alright, here's how you did:
                 
-                You have ${cows.length} 🐄(s) and ${bulls.length} 🐃(s).
+                You have ${cows.length} Cow(s) 🐄 and ${bulls.length} Bull(s) 🐃.
 
                 You have ${7 - tries} tries left.
             `
