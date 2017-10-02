@@ -1,2 +1,1 @@
-# cows-bulls-chatbot
-A chatbot version of the Cows and Bulls game.
+A chatbot version of the [Bulls and Cows](https://en.wikipedia.org/wiki/Bulls_and_Cows) game.
