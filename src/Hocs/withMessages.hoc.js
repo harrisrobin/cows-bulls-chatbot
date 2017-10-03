@@ -2,6 +2,7 @@ import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import uniq from "lodash.uniq"
 import truncate from "lodash.truncate"
+import moment from "moment"
 import generateCombination from "../Lib/helpers/generate-combination"
 
 const INITIAL_STATE = {
@@ -55,7 +56,10 @@ export default ComposedComponent => {
         setTimeout(() => {
           this.pushMessage(message)
           if (index === messages.length - 1) {
-            this.setState({ typing: false })
+            this.setState({
+              typing: false,
+              startTime: moment() // set the start time to after all the instructions are read
+            })
           }
         }, 2000 * index)
       })
@@ -119,7 +123,9 @@ export default ComposedComponent => {
 
     calculateScore = guesses => {
       const { secretCode } = this.state
+
       this.setState(state => ({ ...state, tries: state.tries + 1 }))
+
       guesses.forEach((guess, guessIdx) => {
         secretCode.forEach((answer, answerIdx) => {
           const shouldRevealScore =
@@ -158,14 +164,31 @@ export default ComposedComponent => {
     }
 
     revealScore = () => {
-      const { cows, bulls, tries } = this.state
+      const { cows, bulls, tries, startTime } = this.state
 
       if (tries > 7) {
-        this.resetGame()
+        const timeDiff = moment.duration(startTime.diff(moment())).humanize()
         setTimeout(() => {
           this.pushMessage({
-            text: `You have run out of tries. Resetting game...`
+            text: `
+            You have run out of tries 😔
+            Here's how you did though:
+            In ⏱⏱⏱ ${timeDiff} ⏱⏱⏱ you've scored 
+            ${cows.length} Cow(s) 🐄 and ${bulls.length} Bull(s) 🐃.
+            `
           })
+          setTimeout(() => {
+            this.pushMessage(
+              {
+                text: `
+              I'm going to reset the game for you. Feeling lucky? Try to guess again 😉`,
+                typing: false
+              },
+              () => {
+                this.resetGame()
+              }
+            )
+          }, 1000)
         }, 2000)
       } else {
         setTimeout(() => {
