@@ -178,16 +178,11 @@ export default ComposedComponent => {
             `
           })
           setTimeout(() => {
-            this.pushMessage(
-              {
-                text: `
-              I'm going to reset the game for you. Feeling lucky? Try to guess again 😉`,
-                typing: false
-              },
-              () => {
-                this.resetGame()
-              }
-            )
+            this.pushMessage({
+              text: `
+              I'm going to reset the game for you. Feeling lucky? Try to guess again 😉`
+            })
+            this.resetGame()
           }, 1000)
         }, 2000)
       } else {
