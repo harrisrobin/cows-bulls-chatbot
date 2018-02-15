@@ -10,7 +10,7 @@ const from = ({ fromMe }) => {
       padding:15px 20px;
       color:white; 
       background:#0B93F6;
-      border-radius:25px;
+      border-radius: 25px;
       float: right;
       box-shadow: 0 6px 6px 0 rgba(64, 146, 239,0.15), 0 10px 20px 0 rgba(64, 146, 239,0.10);
   `
