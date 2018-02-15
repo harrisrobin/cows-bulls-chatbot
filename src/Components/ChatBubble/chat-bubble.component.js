@@ -7,7 +7,7 @@ const from = ({ fromMe }) => {
   if (fromMe) {
     return `
       position:relative;
-      padding:10px 20px;
+      padding:15px 20px;
       color:white; 
       background:#0B93F6;
       border-radius:25px;
