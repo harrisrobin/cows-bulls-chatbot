@@ -5,7 +5,7 @@ export default styled.div`
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: whitesmoke;
+  background-color: red;
   height: 50px;
   width: 100%;
   border-bottom: 1px solid #d8d8d8;
